@@ -14,15 +14,21 @@ public:
             return;
         }
 
-        if (item->GetTemplate()->Quality == ITEM_QUALITY_POOR)
+        ItemTemplate const* itemTemplate = item->GetTemplate();
+        if (itemTemplate->Quality == ITEM_QUALITY_POOR && !IsQuestItem(itemTemplate) && !player->HasQuestForItem(itemTemplate->ItemId))
         {
             SendTransactionInformation(player, item, count);
-            player->ModifyMoney(item->GetTemplate()->SellPrice * count);
+            player->ModifyMoney(itemTemplate->SellPrice * count);
             player->DestroyItem(item->GetBagSlot(), item->GetSlot(), true);
         }
     }
 
 private:
+    static bool IsQuestItem(ItemTemplate const* itemTemplate)
+    {
+        return itemTemplate->Class == ITEM_CLASS_QUEST || itemTemplate->StartQuest != 0;
+    }
+
     void SendTransactionInformation(Player* player, Item* item, uint32 count)
     {
         std::string name;
