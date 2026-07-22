@@ -1,6 +1,12 @@
 # Junk to Gold
 
-This module will automatically sell gray items when the player loots them
+This module will automatically sell gray items when the player loots them.
+
+Exceptions (items that will not be auto-sold):
+
+- Quest items (including items that start a quest).
+- Gray armor and weapons that are usable upgrades for the player's currently equipped gear.
+- Gray items currently needed for an active quest objective.
 
 ## Configuration
 
