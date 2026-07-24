@@ -1,9 +1,0 @@
-##################################
-# mod-junk-to-gold configuration
-##################################
-#
-#    JunkToGold.EnableSaleChat
-#        Description:  Enable chat message when an item is auto-sold.
-#        Default:      1 (enabled, original behavior)
-#        Valid Values: 0 = disabled, 1 = enabled
-JunkToGold.EnableSaleChat = 1

@@ -17,13 +17,18 @@ namespace
     static char const* const SOLD_FOR_GOLD = "{} sold for {} gold.";
 }
 
-class JunkToGold : public PlayerScript
+class JunkToGoldPlus : public PlayerScript
 {
 public:
-    JunkToGold() : PlayerScript("JunkToGold") {}
+    JunkToGoldPlus() : PlayerScript("JunkToGoldPlus") {}
 
     void OnPlayerLootItem(Player* player, Item* item, uint32 count, ObjectGuid /*lootguid*/) override
     {
+        if (!IsModuleEnabled())
+        {
+            return;
+        }
+
         if (!item)
         {
             return;
@@ -65,10 +70,17 @@ public:
     }
 
 private:
+    static bool IsModuleEnabled()
+    {
+        // Cache once to avoid repeated config lookups in a frequent hook.
+        static bool const enableModule = sConfigMgr->GetOption<bool>("JunkToGoldPlus.Enable", true);
+        return enableModule;
+    }
+
     static bool IsSaleChatEnabled()
     {
         // Cache once to avoid repeated config lookups in a frequent hook.
-        static bool const enableSaleChat = sConfigMgr->GetOption<bool>("JunkToGold.EnableSaleChat", true);
+        static bool const enableSaleChat = sConfigMgr->GetOption<bool>("JunkToGoldPlus.EnableSaleChat", true);
         return enableSaleChat;
     }
 
@@ -268,7 +280,7 @@ private:
     }
 };
 
-void Addmod_junk_to_goldScripts()
+void Addmod_junk_to_gold_plusScripts()
 {
-    new JunkToGold();
+    new JunkToGoldPlus();
 }

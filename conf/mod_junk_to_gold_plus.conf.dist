@@ -1,0 +1,16 @@
+######################################
+# mod-junk-to-gold-plus configuration
+######################################
+
+#  JunkToGoldPlus.Enable
+#    Description:  Enable or disable the module.
+#    Default:      1 (enabled)
+#    Valid values: 0 = disabled, 1 = enabled
+JunkToGoldPlus.Enable = 1
+
+#  JunkToGoldPlus.EnableSaleChat
+#    Description:  Show chat message when an item is auto-sold.
+#    Note:         Only used when JunkToGoldPlus.Enable = 1.
+#    Default:      1 (enabled)
+#    Valid values: 0 = disabled, 1 = enabled
+JunkToGoldPlus.EnableSaleChat = 1
