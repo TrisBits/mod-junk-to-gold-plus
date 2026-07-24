@@ -120,7 +120,5 @@ cd ../..
 
 `JunkToGoldPlus.EnableSaleChat` (default: `1`)
 
-Dist config file: `conf/mod_junk_to_gold_plus.conf.dist`
-
 - `1`: Send chat messages when gray items are auto-sold.
 - `0`: Disable sale chat messages for quieter operation and slightly less overhead.
