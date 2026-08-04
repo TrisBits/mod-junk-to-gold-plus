@@ -1,4 +1,4 @@
-# <img src="icon.png" alt="Junk to Gold Plus icon" width="32" height="32"> Junk to Gold Plus
+# Junk to Gold Plus
 
 > This is a fork of the original [mod-junk-to-gold](https://github.com/noisiver/mod-junk-to-gold.git) module for [AzerothCore](https://github.com/azerothcore/azerothcore-wotlk.git).
 
